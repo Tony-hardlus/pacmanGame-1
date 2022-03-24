@@ -131,15 +131,29 @@ def move():
     dot(20, 'yellow')
 
     for point, course in ghosts:
+
+        # INTELIGENCIA DE FANTASMAS
         if valid(point + course):
             point.move(course)
         else:
-            options = [
-                vector(5, 0),
-                vector(-5, 0),
-                vector(0, 5),
-                vector(0, -5),
-            ]
+            # si el pacman está a la derecha
+            if (pacman.x>point.x):
+                # y si el pacman está arriba
+                if (pacman.y>point.y):
+                    # desplaza a la derecha y hacia arriba
+                    options = [vector(5,0),vector(0,5)]
+                    # else, desplaza a la derecha y hacia abajo
+                else:
+                    options = [vector(5,0), vector(0,-5)]
+            else:
+                # si el pacman está arriba
+                if (pacman.y>point.y):
+                    # desplaza a la izquierda hacia arriba
+                    options = [vector(-5,0),vector(0,5)]
+                else:
+                    #else, desplaza a la izquierda hacia abajo
+                    options = [vector(-5,0),vector(0,-5)]
+
             plan = choice(options)
             course.x = plan.x
             course.y = plan.y
