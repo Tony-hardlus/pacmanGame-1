@@ -9,12 +9,14 @@ state = {'score': 0}
 path = Turtle(visible=False)
 writer = Turtle(visible=False)
 aim = vector(5, 0)
-pacman = vector(-40, -80)
+pacman = vector(-40, 0) #Cambio: Inicia en el centro del laberinto como en el juego original.
 ghosts = [
     [vector(-180, 160), vector(5, 0)],
     [vector(-180, -160), vector(0, 5)],
     [vector(100, 160), vector(0, -5)],
     [vector(100, -160), vector(-5, 0)],
+    [vector (80,160), vector(5, 0)], #Cambio: Agregando el fantasma Kinky de Pacman Arrangement.
+    [vector(-160,-160),vector(0, 5)] #Cambio: Agregando el fantasma spooky de Pacville.
 ]
 # fmt: off
 tiles = [
