@@ -168,7 +168,7 @@ def move():
         if abs(pacman - point) < 20:
             return
 
-    ontimer(move, 100)
+    ontimer(move, 10) #cambio: Fantasma se mueven mas rapido por el cambio de 100 a 10 en el ontimer.
 
 
 def change(x, y):
